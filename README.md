@@ -13,7 +13,7 @@
 
 | 진행차수 | 마감날짜       | 키워드(제출완료여부)                                         |
 | -------- | -------------- | ------------------------------------------------------------ |
-| 과제1    | 2021-03-15(월) | **1. [객체지향의 설계 원칙✅]]()** <br />**2. [HTTP Method✅]]()**<br />**3. [선택정렬✅]]()** <br />**4. [삽입정렬✅]]()** <br /> **5. [거품정렬✅]]()** <br />|
+| 과제1    | 2021-03-15(월) | **1. [객체지향의 설계 원칙✅]** <br />**2. [HTTP Method✅]**<br />**3. [선택정렬✅]** <br />**4. [삽입정렬✅]** <br /> **5. [거품정렬✅]** <br />|
 | 과제2    | 2021-03-22(월) | **1. [TCP vs UDP의 차이 ]**<br />**2. [HTTPS ]**<br />**3. [REST]**<br />**4. [Quick, Merge 정렬]** |
 | 과제3    | 2021-01-04(월) | **1. [Stack과 Queue](https://github.com/Juhee-Jeong-SW/CS_study_juhee/blob/main/Data%20Structure/stack_%26_queue.md)** ✅ <br />**2. [삽입 정렬(Insertion Sort)](https://github.com/Juhee-Jeong-SW/CS_study_juhee/blob/main/Algorithm/insertion_sort.md)** ✅<br />**3. [HTTP 와 HTTPS 의 차이점](https://github.com/Juhee-Jeong-SW/CS_study_juhee/blob/main/Network/http_%26_https.md)** ✅<br />**4. [운영체제란](https://github.com/Juhee-Jeong-SW/CS_study_juhee/blob/main/OS/operating_system.md)** ✅ |
 | 과제4    | 2021-01-06(수) | **1. [Tree](https://github.com/Juhee-Jeong-SW/CS_study_juhee/blob/main/Data%20Structure/tree.md)** ✅ <br />**2. [퀵 정렬(Quick Sort)](https://github.com/Juhee-Jeong-SW/CS_study_juhee/blob/main/Algorithm/quick_sort.md)** ✅<br />**3. [HTTP의 문제점들](https://github.com/Juhee-Jeong-SW/CS_study_juhee/blob/main/Network/problems_http.md)** ✅<br />**4. [프로세스 vs 스레드](https://github.com/Juhee-Jeong-SW/CS_study_juhee/blob/main/OS/process_vs_thread.md)** ✅<br />**5. [데이터베이스 \| 데이터베이스를 사용하는 이유 \| 데이터베이스 성능](https://github.com/Juhee-Jeong-SW/CS_study_juhee/blob/main/Database/database.md)** ✅ |
