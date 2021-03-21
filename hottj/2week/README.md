@@ -1,0 +1,91 @@
+# 2 주차
+
+## TCP vs UDP
+
+- Transport Layer
+    - End Point간 신뢰성 있는 데이터 전송을 담당하는 계층
+        - 신뢰성 : 데이터를 순차적, 안정적인 전달
+        - 전송 : 포트 번호에 해당하는 프로세스에 데이터를 전달
+    - 전송 계층이 없다면? (전송 계층의 중요성)
+        - 데이터의 순차 전송 원활히 안됨
+            - 송신자 (1,2,3) -> 수신자 (2,3,1) : 의도치 않은 순서로 전달됨
+        - 흐름 문제
+            - 원인: 송수신자 간의 데이터 처리 속도 차이. 수신자가 처리할 수 있는 데이터량을 초과
+                - 데이터를 보내는 건 마음대로 보낼 수 있으나, 받는건 처리할량이 한계점이 존재한다.
+        - 혼잡 문제
+            - 원인: 네트워크의 데이터 처리 속도(라우터). 네트워크가 혼잡할때.
+                - 데이터를 계속 보내도 네트워크문제로 수신이 안됨
+        - 데이터의 손실 발생
+### TCP
+- TCP (Transmission Control Protocol)
+    - 신뢰성있는 데이터 통신을 가능하게 해주는 프로토콜
+    - 특징: Connection 연결(3-way-handshake) : 양방향 통신
+    - 데이터의 순차 전송을 보장
+    - 흐름 제어
+    - 혼잡 제어
+    - 오류 감지
+- 세그먼트
+    - TCP 프로토콜의 PDU
+        - TCP헤더 + 데이터
+    - TCP 헤더
+        - [헤더](https://www.google.com/search?q=tcp+%ED%97%A4%EB%8D%94&rlz=1C5CHFA_enKR943KR944&sxsrf=ALeKk001bFuUiodlRC28E5WGR9umpmf9tg:1616345411927&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjJwPLw68HvAhWWHHAKHbB0CLkQ_AUoAXoECAEQAw&biw=1440&bih=789#imgrc=l5krlQEyPRCBLM)
+- TCP Connection (3-way handshake)
+    - SYN 비트를 1로 설정해 패킷 송신 (클라이언트 -> 서버)
+    - SYN, ACK비트를 1로 설정해 패킷 송신 (서버 -> 클라이언트)
+    - ACK비트를 1로 설정해 패킷 송신 (클라이언트 -> 서버)
+        - 완료되면 둘다 ESTABLISHED 상태로 됨
+- TCP 데이터 전송 방식
+    - 클라이언트가 패킷 송신
+    - 서버에서 액 송신
+    - 액을 수신하지 못하면 재전송
+- TCP Disconnection (4-way handshake)
+    - 데이터를 전부 송신한 클라이언트가 FIN 송신
+    - 서버가 ACK 송신
+    - 서버에서 남은 패킷 송신 (일정 시간 대기)
+        - 클라이언트는 TIME_WAIT 상태
+    - 서버가 FIN 송신
+    - 클라이언트가 ACK 송신
+- TCP의 문제점
+    - 신뢰성은 보장하지만...
+    - 매번 커넥션을 연결해서 시간 손실 발생
+    - 패킷을 조금만 손실해도 재전송
+        - 티가 안나는 손실이여도 재전송...(비효율적)
+### UDP
+- UDP (User Datagram Protocol)
+    - TCP보다 신뢰성이 떨어지지만 전송 속도가 일반적으로 빠른 프로토콜
+        - 순차전송x, 흐름제어x, 혼잡제어x
+    - 비연결성 (단방향) 
+    - 에러 디텍션 (체크섬)
+    - 비교적 데이터의 신뢰성이 중요하지 않을 때 사용 (영상 스트리밍)
+- User Datagram
+    - UDP 프로토콜의 PDU
+    - TCP는 데이터를 쪼개서 세그먼트를 만들었지만 UDP는 쪼개지 않는다
+- UDP 헤더
+    - [헤더](https://www.google.com/search?q=udp+%ED%97%A4%EB%8D%94&tbm=isch&ved=2ahUKEwjsyunx68HvAhUBNaYKHTPQAz0Q2-cCegQIABAA&oq=udp+%ED%97%A4%EB%8D%94&gs_lcp=CgNpbWcQAzICCAAyBAgAEBgyBAgAEBg6CAgAEAcQBRAeUIqHAljLoAJgoaICaARwAHgAgAHRAYgBsAqSAQUwLjkuMZgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=RXlXYKyUNYHqmAWzoI_oAw&bih=789&biw=1440&rlz=1C5CHFA_enKR943KR944#imgrc=4uDzXVSY-Zu9vM)
+- 데이터 전송방법
+    - 클라이언트가 패킷 송신
+- 중요점
+    - 각각의 특성을 파악하고 상황에 따라 적절한 프로토콜을 사용
+    - 각각의 헤더에 대해 파악하고 성능 개선에 이용
+- 웹서비스
+    - TCP, UDP 포트번호 80
+- 0번~1023번 : 잘 알려진 포트
+    - 루트권한이 있어야 열 수 있음
+- 1024번~49151번 : 등록된 포트
+    - 인터넷 관리기관에 등로되어진 포트들
+- 49152번~65535번 : 동적 포트
+    - 일반 사람들이 사용할 수 있는 포트들
+- 포트번호는 서비스를 제공하는 서버에 접속하기 위한 논리적 경로의 이름
+- 포트포워드
+    - 공인아이피주소 : 1.2.3.4
+    - 집밖에서 우리집을 바라봤을 때 우리집 주소는 외부공인아이피이며 공유기 아래에 있는 서버들이 다가구주택에서의 호실
+    - 웹서버 : 1.2.3.4:80
+    - 외부에서 1.2.3.4:80으로 입력하면 접속이 될까?
+        - 공유기는 물리적인 방화벽. 모든 포트들을 공유기에서 막아놓음. 이럴때 공유기설정에서 포트포워드가 필요하다
+        - 특정한 어떤 포트를 앞으로 끄집어내야함
+    - 웹서버 : 사설 IP주소 : 192.168.0.2
+        - 이를 공인아이피주소와 포트포워딩해준다. 포트포워드 시킬때 포트를 80으로 설정해주면 밖에서 봤을 때 1.2.3.4:80이 바로 웹서버 주소가 된다.
+    - 외부포트 : 공인아이피주소의 포트
+    - 내부포트 : 공유기 DHCP서버가 만들어낸 IP의 포트
+    - 외부포트 80를 내부포트 7777로 연결시킬 수 있음
+
