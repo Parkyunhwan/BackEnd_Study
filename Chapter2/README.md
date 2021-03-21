@@ -86,7 +86,7 @@ HTTP
  : RESTful의 목적은 이해하기 쉽고 사용하기 쉬운 REST API를 만드는 것
  
  CRUD
- 
+| CRUD | METHOD | /URI |
 |------|---|---------|
 | 표시 | GET | /users |
 | 하나만 표시 | GET | /users/:id |
