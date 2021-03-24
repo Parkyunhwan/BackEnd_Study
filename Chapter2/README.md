@@ -39,6 +39,7 @@ Client에서 세션을 종료시킨 후 뒤늦게 도착하는 패킷이 있다�
 <img width="605" alt="스크린샷 2021-03-24 오후 7 32 47" src="https://user-images.githubusercontent.com/47052106/112296068-e1422d80-8cd7-11eb-8a27-0fcde8cb35eb.png">
 - 클라이언트가 ACK을 받지 못하면?
   - 일정 시간이 지나고도 ACK을 받지 못하면 데이터를 재전송한다.
+  
 - PDU
   - PDU(Protocol Data Unit)은 통신 프레임을 의미한다. TCP의 PDU는 Segment라고 부르고 UDP의 PDU는 Datagram이라고 하고 IP의 PDU는 Packet이라고 한다. IP 아래 계층의 Link 계층의 PDU를 Frame이라고 한다. Link 계층에 Ethernet이 사용될 때의 PDU는 Ethernet Frame이라고 한다.
 
