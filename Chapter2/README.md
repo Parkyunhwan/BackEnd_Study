@@ -1,6 +1,6 @@
 # :book: :two:주차 정리
 
-### TCP vs UDP
+### ✔️ TCP vs UDP
 - 공통점
   - 포트 번호를 이용하여 주소를 지정한다.
     - 두 애플리케이션이 통신하기 위해 반드시 포트 번호를 결정해야 한다.
@@ -37,3 +37,9 @@
     - 클라이언트는 확인했다는 메시지를 보낸다. 그런데 만약 "Server에서 FIN을 전송하기 전에 전송한 패킷이 Routing 지연이나 패킷 유실로 인한 재전송 등으로 인해 FIN패킷보다 늦게 도착하는 상황"이 발생한다면 어떻게 될까요? 
 Client에서 세션을 종료시킨 후 뒤늦게 도착하는 패킷이 있다면 이 패킷은 Drop되고 데이터는 유실될 것입니다. 이러한 현상에 대비하여 Client는 Server로부터 FIN을 수신하더라도 일정시간(디폴트 240초) 동안 세션을 남겨놓고 잉여 패킷을 기다리는 과정을 거치게 되는데 이 과정을 "TIME_WAIT" 라고 합니다.
 <img width="605" alt="스크린샷 2021-03-24 오후 7 32 47" src="https://user-images.githubusercontent.com/47052106/112296068-e1422d80-8cd7-11eb-8a27-0fcde8cb35eb.png">
+- 클라이언트가 ACK을 받지 못하면?
+  - 일정 시간이 지나고도 ACK을 받지 못하면 데이터를 재전송한다.
+- PDU
+  - PDU(Protocol Data Unit)은 통신 프레임을 의미한다. TCP의 PDU는 Segment라고 부르고 UDP의 PDU는 Datagram이라고 하고 IP의 PDU는 Packet이라고 한다. IP 아래 계층의 Link 계층의 PDU를 Frame이라고 한다. Link 계층에 Ethernet이 사용될 때의 PDU는 Ethernet Frame이라고 한다.
+
+### ✔️ REST API
