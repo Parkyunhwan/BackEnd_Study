@@ -98,3 +98,4 @@
 - MVVM
     - 뷰 모델 테스트가 용이해지고 의존성이 낮아짐
 - [참고](https://beomy.tistory.com/43)
+- [MVC](https://m.blog.naver.com/jhc9639/220967034588)
